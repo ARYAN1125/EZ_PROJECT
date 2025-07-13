@@ -1,71 +1,44 @@
-
-
-
 # 🧠 GenAI Smart Research Summarizer
 
-An AI-powered assistant to read, understand, summarize, and quiz you on uploaded documents (PDF/TXT). Built for the EZ Works GenAI Internship Assignment.
+An AI-powered assistant that can **read**, **understand**, **summarize**, and **quiz** you on uploaded documents (PDF/TXT).  
+Built with ❤️ for the **EZ Works GenAI Internship Assignment**.
 
 ---
 
 ## 🔧 Features
 
-- 📄 **Document Upload** (PDF or TXT)
-- ✍️ **Auto Summary** in ≤150 words
-- 💬 **Ask Anything Mode** — free-form Q&A
-- 🎯 **Challenge Me Mode** — generates logic-based questions and evaluates your answers
-- 🧠 Runs locally using Hugging Face models (no API keys required)
+- 📄 **Document Upload** – Supports `.pdf` and `.txt` files.
+- ✍️ **Auto Summary** – Extracts and summarizes content in under **150 words**.
+- 💬 **Ask Anything Mode** – Free-form intelligent Q&A on uploaded content.
+- 🎯 **Challenge Me Mode** – Generates logic-based questions and evaluates your answers.
+- 🧠 **Fully Local Execution** – Powered by Hugging Face models; no API keys needed.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python 🐍
-- Streamlit 🖼️
-- HuggingFace Transformers 🤗
-- pdfminer.six (PDF parsing)
+- **Python** 🐍
+- **Streamlit** 🖼️ – for the interactive web app interface.
+- **HuggingFace Transformers** 🤗 – for NLP tasks.
+- **pdfminer.six** – for parsing PDFs.
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repo
+### 🔨 Installation Steps
+
 ```bash
-git clone https://github.com/your-username/genai-summarizer.git
+# 1. Clone the repo
+git clone https://github.com/ARYAN1125/genai-summarizer.git
 cd genai-summarizer
-# 🧠 GenAI Smart Research Summarizer
 
-An AI-powered assistant to read, understand, summarize, and quiz you on uploaded documents (PDF/TXT). Built for the EZ Works GenAI Internship Assignment.
+# 2. Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
----
+# 3. Install dependencies
+pip install -r requirements.txt
 
-## 🔧 Features
-
-- 📄 **Document Upload** (PDF or TXT)
-- ✍️ **Auto Summary** in ≤150 words
-- 💬 **Ask Anything Mode** — free-form Q&A
-- 🎯 **Challenge Me Mode** — generates logic-based questions and evaluates your answers
-- 🧠 Runs locally using Hugging Face models (no API keys required)
-
----
-
-## 🛠️ Tech Stack
-
-- Python 🐍
-- Streamlit 🖼️
-- HuggingFace Transformers 🤗
-- pdfminer.six (PDF parsing)
-
----
-
-Devloped  by  your  truly Founder  and  creator  of  AryaVerse  Himanshu  Jayprakash  Singh
-
-#get  started
-take  a  moment to give  a Star(*)  to  the  repo  really  appreciated    thanks............
-1->clone  the  repo
-2->go inside  directory
-3->make  the  virtual  environment
-4->run the  pip  install  -r  requirements.txt
-5->streamlit run app.py       and  you  are  all  set
-
-#best  regards    
-
+# 4. Run the app
+streamlit run app.py
