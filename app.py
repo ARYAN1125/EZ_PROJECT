@@ -62,31 +62,64 @@ st.markdown("""
     .main {
         max-width: 1200px;
         padding: 2rem;
+        background-color: #f0f9ff; /* lighter Tailwind blue-50 */
+        border-radius: 0.75rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .stButton>button {
+
+    .stButton > button {
         width: 100%;
         border-radius: 20px;
-        font-weight: bold;
+        font-weight: 600;
+        background-color: #2563eb; /* Tailwind blue-600 */
+        color: #ffffff;
+        padding: 0.75rem 1.25rem;
+        font-size: 1.05rem;
+        font-family: 'Poppins', sans-serif;
+        transition: background-color 0.2s ease, transform 0.2s ease;
     }
-    .stTextArea>div>div>textarea {
+
+    .stButton > button:hover {
+        background-color: #1e40af; /* Tailwind blue-800 */
+        transform: scale(1.02);
+    }
+
+    .stTextArea > div > div > textarea {
         min-height: 150px;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        padding: 0.85rem;
+        font-size: 1.05rem;
+        font-family: 'Roboto', sans-serif;
+        background-color: #ffffff;
+        color: #111827;
     }
+
     .highlight {
-        background-color: #fffbcc;
-        padding: 2px 4px;
-        border-radius: 4px;
+        background-color: #fef08a; /* brighter highlight */
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-weight: 600;
+        color: #78350f;
+        font-size: 0.95rem;
     }
+
     .confidence-high {
-        color: #28a745;
-        font-weight: bold;
+        color: #15803d;
+        font-weight: 600;
+        font-style: italic;
     }
+
     .confidence-medium {
-        color: #ffc107;
-        font-weight: bold;
+        color: #ca8a04;
+        font-weight: 600;
+        font-style: italic;
     }
+
     .confidence-low {
-        color: #dc3545;
-        font-weight: bold;
+        color: #b91c1c;
+        font-weight: 600;
+        font-style: italic;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -107,12 +140,16 @@ if 'show_results' not in st.session_state:
     st.session_state.show_results = False
 
 # App title and description
-st.title("🧠 GenAI Research Assistant")
+st.title("🤖 GenAI Research Assistant")
 st.markdown("""
-Welcome to the GenAI Research Assistant! Upload a document and interact with it in multiple ways:
-1. Get an automatic summary
-2. Ask questions about the content
-3. Test your understanding with challenge questions
+Welcome to the GenAI Research Assistant.
+Upload your document to leverage advanced NLP capabilities, including:
+
+Automated content summarization
+
+Contextual question answering
+
+Comprehension assessment via challenge-based queries
 """)
 
 # File uploader in sidebar
@@ -163,7 +200,7 @@ if st.session_state.document_text:
 
 # Ask Anything Mode
 st.markdown("---")
-st.subheader("💬 Ask Anything About the Document")
+st.subheader("❓ Query the Document Content")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -198,10 +235,15 @@ if prompt := st.chat_input("Ask a question about the document..."):
             if is_comprehensive:
                 # For comprehensive answers, show the full answer with clean formatting
                 response = f"""
-                <div style="margin-bottom: 1em;">
-                    <div style="font-weight: bold; margin-bottom: 0.5em;">Answer:</div>
-                    <div style="margin-bottom: 1em; white-space: pre-line;">{result['answer']}</div>
-                </div>
+               <div style="margin-bottom: 1.5em; padding: 1rem; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="font-weight: 600; font-size: 1.1rem; color: #111827; margin-bottom: 0.5em;">
+        Answer:
+    </div>
+    <div style="margin-bottom: 0.5em; white-space: pre-line; font-size: 1.05rem; color: #374151;">
+        {{ result['answer'] }}
+    </div>
+</div>
+
                 """
             else:
                 # For regular answers, include confidence and source context
@@ -279,7 +321,7 @@ if prompt := st.chat_input("Ask a question about the document..."):
 
 # Challenge Mode
 st.markdown("---")
-st.subheader("🎯 Challenge Me: Test Your Understanding")
+st.subheader("🧪 Challenge Me: Assess Your Comprehension")
 
 if not st.session_state.document_text:
     st.info("ℹ️ Please upload a document first to use Challenge Mode.")
